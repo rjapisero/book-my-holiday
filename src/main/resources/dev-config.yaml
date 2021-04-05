@@ -11,6 +11,10 @@ hotelsAPI:
   port: "80"
   protocol: "HTTP"
   basePath: "/api/hotels"
+  reconnectionCount: "5000"
+  reconnectionTime: "3"
+  clientID: "6733a9fb041449ec9556370c3e2af025"
+  clientSecret: "ba94BbB887cb4145930A586028ADA52d"
   
 flight:
   host: "process-flight-api.us-e2.cloudhub.io"

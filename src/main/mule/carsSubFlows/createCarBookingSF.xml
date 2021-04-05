@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:car-booking-process-api="http://www.mulesoft.org/schema/mule/car-booking-process-api" xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.org/schema/mule/car-booking-process-api/current/mule-car-booking-process-api.xsd">
+<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger" xmlns:car-booking-process-api="http://www.mulesoft.org/schema/mule/car-booking-process-api"
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.org/schema/mule/car-booking-process-api/current/mule-car-booking-process-api.xsd
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="createCarBookingSF" doc:id="238c94f8-e803-49db-9493-098b90e9ad11" >
+		<json-logger:logger doc:name="Request" doc:id="501beab1-c6f1-4fd6-bd13-2950b2d83d72" config-ref="JSON_Logger_Config" message="createBookingRequest"/>
 		<car-booking-process-api:create-booking doc:name="Create booking" doc:id="e8947c56-5f0d-4ade-a6aa-5aa758f6fc87" config-ref="Car_Booking_Process_API_Config" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
+		<json-logger:logger doc:name="Logger" doc:id="60450530-d322-47a1-85af-93df9ae48e6d" config-ref="JSON_Logger_Config" message="createBookingResponse"/>
 	</flow>
 </mule>

@@ -5,7 +5,7 @@
 	xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd">
 	<flow name="searchCars" doc:id="c501ac97-7090-4c58-a4e1-7bad17e14adc" >
 		<logger level="INFO" doc:name="reqLogger" doc:id="b7d64177-dbd3-432e-92a2-66339f9e243d" message="#[payload]"/>
-		<flow-ref doc:name="searchCarsSubFlow" doc:id="26c3d2a6-3308-4db0-b1c2-ab3a8e148013" name="searchCarsSubFlow"/>
+		<flow-ref doc:name="searchCarsSubFlow" doc:id="26c3d2a6-3308-4db0-b1c2-ab3a8e148013" name="searchCarsSF"/>
 		<logger level="INFO" doc:name="respLogger" doc:id="174cf3d1-4577-47cb-8cc0-13c135427ae3" message="#[payload]"/>
 	</flow>
 	<flow name="createCarBooking" doc:id="e8c310a3-6150-447d-8800-3fd0c1cfbd37" >

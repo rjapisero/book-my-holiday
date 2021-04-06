@@ -12,7 +12,7 @@ http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/m
     payload: JSONLoggerModule::stringifyNonJSON(attributes) 
 }]]]></json-logger:content>
 		</json-logger:logger>
-		<http:request method="PATCH" doc:name="Request" doc:id="d6ac44cb-ca2f-4f59-9ce0-c46697350423" config-ref="HTTP_Request_configuration_flights" responseTimeout="${flight.timeout}" path="/flights/{emailID}/{bookingID}">
+		<http:request method="DELETE" doc:name="Request" doc:id="d6ac44cb-ca2f-4f59-9ce0-c46697350423" config-ref="HTTP_Request_configuration_flights" responseTimeout="${flight.timeout}" path="/flights/{emailID}/{bookingID}">
 			<reconnect frequency="${flight.reconnectionTime}" count="${flight.reconnectionCount}" />
 			<http:uri-params ><![CDATA[#[output application/java
 ---

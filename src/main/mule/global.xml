@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<mule xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
-	xmlns:car-booking-process-api="http://www.mulesoft.org/schema/mule/car-booking-process-api"
-	xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit" xmlns:http="http://www.mulesoft.org/schema/mule/http"
-	xmlns="http://www.mulesoft.org/schema/mule/core"
-	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
+<mule xmlns:secure-properties="http://www.mulesoft.org/schema/mule/secure-properties"
+	xmlns:json-logger="http://www.mulesoft.org/schema/mule/json-logger"
+	xmlns:car-booking-process-api="http://www.mulesoft.org/schema/mule/car-booking-process-api" xmlns:apikit="http://www.mulesoft.org/schema/mule/mule-apikit"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+	xmlns="http://www.mulesoft.org/schema/mule/core" xmlns:doc="http://www.mulesoft.org/schema/mule/documentation" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="
 http://www.mulesoft.org/schema/mule/mule-apikit http://www.mulesoft.org/schema/mule/mule-apikit/current/mule-apikit.xsd 
 http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
 http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.org/schema/mule/car-booking-process-api/current/mule-car-booking-process-api.xsd
-http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
+http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd
+http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/schema/mule/secure-properties/current/mule-secure-properties.xsd">
 	<http:listener-config name="book-my-holidays-exp-api-httpListenerConfig">
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
@@ -26,9 +27,22 @@ http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/m
 		<http:request-config name="HTTP_Request_configuration_flights" doc:name="HTTP Request configuration" doc:id="3d14fd8f-63cd-4f62-9317-2c497ab65dce" basePath="${flight.basePath}">
 		<http:request-connection host="${flight.host}" port="${flight.port}" />
 		<http:default-headers >
+			<http:default-header key="client_id" value="${flight.clientID}" />
+			<http:default-header key="client_secret" value="${flight.clientSecret}" />
+
 		</http:default-headers>
 	
 </http:request-config>
 	<global-property doc:name="Global Property" doc:id="b5b2cd3a-3c73-49a6-bba8-c650498b439b" name="environment" value="dev" />
 	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="c795c76d-7d31-4dde-af40-c732e574410c" environment="${environment}" />
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="e01a1ad4-f5b0-4241-8101-b7ee35b60a84" file="${environment}-config.yaml" key="mule@123" >
+		<secure-properties:encrypt algorithm="Blowfish" />
+	</secure-properties:config>
+	<error-handler name="globalError_Handler" doc:id="c2979f39-7f33-4a54-9027-231e127ad33b" >
+		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="2b47f382-9082-4e1c-8416-691a3506cb77" >
+			<set-payload value='#[output application/json --- {&#10;	message: "Your request could not be processed at this time.Please try again later.",&#10;	error: error.description&#10;}]' doc:name="Set Payload" doc:id="01e2952b-0bf8-4e09-816a-d83a5daf9cca" />
+			<json-logger:logger doc:name="Logger" doc:id="a1e9a27f-7203-4e07-8692-dd7cba459beb" config-ref="JSON_Logger_Config" message="Global Error Handler"/>
+		</on-error-continue>
+	</error-handler>
+
 </mule>

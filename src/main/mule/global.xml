@@ -38,6 +38,7 @@ http://www.mulesoft.org/schema/mule/secure-properties http://www.mulesoft.org/sc
 	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="e01a1ad4-f5b0-4241-8101-b7ee35b60a84" file="${environment}-config.yaml" key="mule@123" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
+	<configuration doc:name="Configuration" doc:id="6684271d-fe86-477f-a17a-0a766c9a1a7c" defaultErrorHandler-ref="globalError_Handler" />
 	<error-handler name="globalError_Handler" doc:id="c2979f39-7f33-4a54-9027-231e127ad33b" >
 		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="2b47f382-9082-4e1c-8416-691a3506cb77" >
 			<set-payload value='#[output application/json --- {&#10;	message: "Your request could not be processed at this time.Please try again later.",&#10;	error: error.description&#10;}]' doc:name="Set Payload" doc:id="01e2952b-0bf8-4e09-816a-d83a5daf9cca" />

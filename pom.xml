@@ -74,16 +74,16 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-            <groupId>4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed</groupId>
+            <groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
             <artifactId>book-my-holidays-exp-api</artifactId>
-            <version>1.0.4</version>
+            <version>1.0.5</version>
             <classifier>raml</classifier>
             <type>zip</type>
         </dependency>
         <dependency>
-            <groupId>4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed</groupId>
+            <groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
             <artifactId>mule-plugin-car-booking-process-api</artifactId>
-            <version>1.0.5</version>
+            <version>1.0.0</version>
             <classifier>mule-plugin</classifier>
         </dependency>
     	<dependency>

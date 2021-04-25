@@ -14,7 +14,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 	<http:listener-config name="book-my-holidays-exp-api-httpListenerConfig">
         <http:listener-connection host="0.0.0.0" port="8081" />
     </http:listener-config>
-    <apikit:config name="book-my-holidays-exp-api-config" api="resource::4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed:book-my-holidays-exp-api:1.0.4:raml:zip:book-my-holidays-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
+    <apikit:config name="book-my-holidays-exp-api-config" api="resource::153bff43-c7cf-41db-92f2-1af5109040bd:book-my-holidays-exp-api:1.0.5:raml:zip:book-my-holidays-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
 	<configuration-properties doc:name="Configuration properties" doc:id="c9a8b781-6c7f-4c4c-92c6-ad6e8cd73e2a" file="${environment}-config.yaml" />
 	<car-booking-process-api:config name="Car_Booking_Process_API_Config" doc:name="Car Booking Process API Config" doc:id="74b98dc1-9533-44bc-8115-1a3edaf80958" property_host="${carsAPI.host}" property_port="${carsAPI.port}" property_protocol="${carsAPI.protocol}" property_basePath="${carsAPI.basePath}"/>
 	<http:request-config name="HTTP_Request_configuration_hotels" doc:name="HTTP Request configuration" doc:id="edd982f5-1a0c-478d-9a56-23c44f71a9db" basePath="${hotelsAPI.basePath}" >
@@ -40,7 +40,7 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
 	<configuration doc:name="Configuration" doc:id="6684271d-fe86-477f-a17a-0a766c9a1a7c" defaultErrorHandler-ref="globalError_Handler" />
-	<api-gateway:autodiscovery apiId="16756909" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="1cafe8cf-6b5f-47c6-9857-4b647465d14e" flowRef="book-my-holidays-exp-api-main" />
+	<api-gateway:autodiscovery apiId="16814728" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="7dc3771f-9e5d-410f-bada-b0b438abdeb2" flowRef="book-my-holidays-exp-api-main" />
 	<error-handler name="globalError_Handler" doc:id="c2979f39-7f33-4a54-9027-231e127ad33b" >
 		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="2b47f382-9082-4e1c-8416-691a3506cb77" >
 			<set-payload value='#[output application/json --- {&#10;	message: "Your request could not be processed at this time.Please try again later.",&#10;	error: error.description&#10;}]' doc:name="Set Payload" doc:id="01e2952b-0bf8-4e09-816a-d83a5daf9cca" />

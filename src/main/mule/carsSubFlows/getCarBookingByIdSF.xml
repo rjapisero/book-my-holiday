@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="getCarBookingByIdSF" doc:id="a6e17e1a-a8c6-41df-94d1-f67817072505" >
 		<json-logger:logger doc:name="Logger" doc:id="9171fbd4-d25b-49fa-9d93-6f264f6a21c3" config-ref="JSON_Logger_Config" message="getCarBookingByIdRequest"/>
-		<car-booking-process-api:get-booking-by-booking-id doc:name="Get booking by booking id" doc:id="b1e360db-d388-4d86-9a21-71c47133e149" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
+		<car-booking-process-api:get-booking-by-booking-id doc:name="Get booking by booking id" doc:id="b1e360db-d388-4d86-9a21-71c47133e149" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${secure::carsAPI.client_id}" client-secret="${secure::carsAPI.client_secret}"/>
 		<json-logger:logger doc:name="Logger" doc:id="8ebf3106-da54-4118-b982-ffce1bd73821" config-ref="JSON_Logger_Config" message="getCarBookingByIdResponse"/>
 	</flow>
 </mule>

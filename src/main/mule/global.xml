@@ -36,11 +36,11 @@ http://www.mulesoft.org/schema/mule/api-gateway http://www.mulesoft.org/schema/m
 </http:request-config>
 	<global-property doc:name="Global Property" doc:id="b5b2cd3a-3c73-49a6-bba8-c650498b439b" name="environment" value="dev" />
 	<json-logger:config name="JSON_Logger_Config" doc:name="JSON Logger Config" doc:id="c795c76d-7d31-4dde-af40-c732e574410c" environment="${environment}" />
-	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="e01a1ad4-f5b0-4241-8101-b7ee35b60a84" file="${environment}-config.yaml" key="mule@123" >
+	<secure-properties:config name="Secure_Properties_Config" doc:name="Secure Properties Config" doc:id="e01a1ad4-f5b0-4241-8101-b7ee35b60a84" file="${environment}-config.yaml" key="${token}" >
 		<secure-properties:encrypt algorithm="Blowfish" />
 	</secure-properties:config>
 	<configuration doc:name="Configuration" doc:id="6684271d-fe86-477f-a17a-0a766c9a1a7c" defaultErrorHandler-ref="globalError_Handler" />
-	<api-gateway:autodiscovery apiId="16814728" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="7dc3771f-9e5d-410f-bada-b0b438abdeb2" flowRef="book-my-holidays-exp-api-main" />
+	<api-gateway:autodiscovery apiId="16814728" ignoreBasePath="true" doc:name="API Autodiscovery" doc:id="b1f58674-7978-43e1-b411-0d051acb7cdb" flowRef="book-my-holidays-exp-api-main" />
 	<error-handler name="globalError_Handler" doc:id="c2979f39-7f33-4a54-9027-231e127ad33b" >
 		<on-error-continue enableNotifications="true" logException="true" doc:name="On Error Continue" doc:id="2b47f382-9082-4e1c-8416-691a3506cb77" >
 			<set-payload value='#[output application/json --- {&#10;	message: "Your request could not be processed at this time.Please try again later.",&#10;	error: error.description&#10;}]' doc:name="Set Payload" doc:id="01e2952b-0bf8-4e09-816a-d83a5daf9cca" />

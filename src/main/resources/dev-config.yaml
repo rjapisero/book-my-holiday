@@ -2,8 +2,8 @@ carsAPI:
   host: "car-booking-proc-api.us-e2.cloudhub.io"
   port: "80"
   protocol: "HTTP"
-  client_id: "52b3ae7d19ec4911919fce85c4ec2b6c"
-  client_secret: "6c80B07938584d32b2F48cee7Be45954"
+  client_id: "![G4c8apzK7BEU3oPj0nfJT6NXoRZJRGR/s6ZO6rEZPqenfYhkpyi1aQ==]"
+  client_secret: "![sQC07IhQA0sHcfyp6w3XII7g47geXwZLT/Bg+eAUhbgYvlCNu1RdBg==]"
   basePath: "/procapi/"
   
 hotelsAPI:

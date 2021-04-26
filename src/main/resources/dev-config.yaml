@@ -23,8 +23,8 @@ flight:
   basePath: "/procapi"
   reconnectionCount: "5000"
   reconnectionTime: "3"
-  clientID: "e9329cb70b9246ad810b1b1a35e4e591"
-  clientSecret: "Ae46561b7C6e444BAD461B0056CABB84"
+  clientID: "8cc5eefc77b545a7beb141eacf8fa11f"
+  clientSecret: "9Ae452D7b7964e92A4768810bDc9B230"
   
 json:
   logger:

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-
 	<groupId>holidays.com</groupId>
 	<artifactId>bookmyholidays-exp-api</artifactId>
 	<version>1.0.0-SNAPSHOT</version>
@@ -10,12 +9,10 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
 		<app.runtime>4.3.0-20210304</app.runtime>
 		<mule.maven.plugin.version>3.4.2</mule.maven.plugin.version>
 		<mule.version>4.3.0</mule.version>
 	</properties>
-
 	<build>
 		<plugins>
 			<plugin>
@@ -42,12 +39,11 @@
 						<workers>1</workers>
 						<region>us-east-2</region>
 					</cloudHubDeployment>
-				<classifier>mule-application</classifier>
-                </configuration>
+					<classifier>mule-application</classifier>
+				</configuration>
 			</plugin>
 		</plugins>
 	</build>
-
 	<dependencies>
 		<dependency>
 			<groupId>org.mule.modules</groupId>
@@ -74,26 +70,25 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-            <groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
-            <artifactId>book-my-holidays-exp-api</artifactId>
-            <version>1.0.5</version>
-            <classifier>raml</classifier>
-            <type>zip</type>
-        </dependency>
-        <dependency>
-            <groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
-            <artifactId>mule-plugin-car-booking-process-api</artifactId>
-            <version>1.0.0</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-    	<dependency>
-            <groupId>com.mulesoft.modules</groupId>
-            <artifactId>mule-secure-configuration-property-module</artifactId>
-            <version>1.2.3</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-    </dependencies>
-
+			<groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
+			<artifactId>book-my-holidays-exp-api</artifactId>
+			<version>1.0.5</version>
+			<classifier>raml</classifier>
+			<type>zip</type>
+		</dependency>
+		<dependency>
+			<groupId>153bff43-c7cf-41db-92f2-1af5109040bd</groupId>
+			<artifactId>mule-plugin-car-booking-process-api</artifactId>
+			<version>1.0.0</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>com.mulesoft.modules</groupId>
+			<artifactId>mule-secure-configuration-property-module</artifactId>
+			<version>1.2.3</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+	</dependencies>
 	<repositories>
 		<repository>
 			<id>anypoint-exchange-v2</id>
@@ -119,5 +114,4 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
 </project>

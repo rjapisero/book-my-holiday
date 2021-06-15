@@ -120,7 +120,7 @@
 		<repository>
 			<id>Exchange2</id>
 			<name>Exchange2 Repository</name>
-			<url>https://maven.anypoint.mulesoft.com/api/v1/organizations/4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed/maven</url>
+			<url>https://maven.anypoint.mulesoft.com/api/v2/organizations/4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed/maven</url>
 			<layout>default</layout>
 		</repository>
 		<repository>

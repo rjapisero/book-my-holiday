@@ -81,6 +81,7 @@
 		</dependency>
 		<dependency>
 			<groupId>4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed</groupId>
+			<!-- <groupId>c5ddb66b-c2bb-402e-9302-3a7ae2581f43</groupId> -->
 			<artifactId>book-my-holidays-exp-api</artifactId>
 			<version>1.0.5</version>
 			<classifier>raml</classifier>
@@ -93,15 +94,15 @@
 			<classifier>mule-plugin</classifier>
 		</dependency>
 		<dependency>
-			<groupId>c5ddb66b-c2bb-402e-9302-3a7ae2581f43</groupId>
-			<artifactId>json-logger</artifactId>
-			<version>2.0.1</version>
-			<classifier>mule-plugin</classifier>
-		</dependency>
-		<dependency>
 			<groupId>org.mule.connectors</groupId>
 			<artifactId>mule-jms-connector</artifactId>
 			<version>1.6.3</version>
+			<classifier>mule-plugin</classifier>
+		</dependency>
+		<dependency>
+			<groupId>4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed</groupId>
+			<artifactId>json-logger</artifactId>
+			<version>2.0.1</version>
 			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>

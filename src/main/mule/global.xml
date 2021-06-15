@@ -5,7 +5,6 @@
     </http:listener-config>
     <apikit:config name="book-my-holidays-exp-api-config" api="resource::4d87dab9-c9c4-42af-a74f-7cac2d1fa2ed:book-my-holidays-exp-api:1.0.5:raml:zip:book-my-holidays-exp-api.raml" outboundHeadersMapName="outboundHeaders" httpStatusVarName="httpStatus" />
     <configuration-properties doc:name="Configuration properties" doc:id="c9a8b781-6c7f-4c4c-92c6-ad6e8cd73e2a" file="${environment}-config.yaml" />
-    <car-booking-process-api:config name="Car_Booking_Process_API_Config" doc:name="Car Booking Process API Config" doc:id="74b98dc1-9533-44bc-8115-1a3edaf80958" property_host="${carsAPI.host}" property_port="${carsAPI.port}" property_protocol="${carsAPI.protocol}" property_basePath="${carsAPI.basePath}" />
     <http:request-config name="HTTP_Request_configuration_hotels" doc:name="HTTP Request configuration" doc:id="edd982f5-1a0c-478d-9a56-23c44f71a9db" basePath="${hotelsAPI.basePath}">
         <http:request-connection protocol="${hotelsAPI.protocol}" host="${hotelsAPI.host}" port="${hotelsAPI.port}" />
         <http:default-headers>

@@ -122,27 +122,11 @@ output application/json
     <flow name="delete:\flights\(emailID)\(bookingID):book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="d7de8690-adc8-4e85-8098-cc4da814ba2c" name="deleteFlightBookings" />
     </flow>
-    <flow name="delete:\cars\booking\(bookingId):book-my-holidays-exp-api-config">
-        <ee:transform>
-            <ee:variables>
-                <ee:set-variable variableName="bookingId">attributes.uriParams.'bookingId'</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <flow-ref doc:name="deleteCarBookingSF" doc:id="59ec72c5-d801-48b9-a9cd-606a8ecffaa3" name="deleteCarBookingSF" />
-    </flow>
     <flow name="patch:\flights:application\json:book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="b6904796-979c-414b-9408-6ae23fabf82d" name="updateFlightBookings" />
     </flow>
     <flow name="patch:\hotels\updateHotelBooking:application\json:book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="d193ff9d-875e-445f-82fc-d29e4af2c558" name="updateHotelBookingSub_Flow" />
-    </flow>
-    <flow name="patch:\cars\booking\(bookingId):application\json:book-my-holidays-exp-api-config">
-        <ee:transform>
-            <ee:variables>
-                <ee:set-variable variableName="bookingId">attributes.uriParams.'bookingId'</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <flow-ref doc:name="updateCarBookingSF" doc:id="0bd34b6d-596f-4077-b7c8-ab4279301850" name="updateCarBookingSF" />
     </flow>
     <flow name="patch:\hotels\cancelHotelBooking\(hotelBookingID):book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="38292dfb-dd57-4b24-8325-9b5a944cfcf0" name="cancelHotelBookingSub_Flow" />
@@ -153,51 +137,17 @@ output application/json
     <flow name="get:\hotels\listAllBookings:book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="20d2831d-721c-4955-b206-2fd9e8511ced" name="listAllHotelBookingsSub_Flow" />
     </flow>
-    <flow name="get:\cars\searchCars:book-my-holidays-exp-api-config">
-        <flow-ref doc:name="searchCarsSF" doc:id="9590b2bb-0370-40e1-a5d0-f18cdf9fb36e" name="searchCarsSF" />
-    </flow>
-    <flow name="get:\cars\booking\(bookingId):book-my-holidays-exp-api-config">
-        <ee:transform>
-            <ee:variables>
-                <ee:set-variable variableName="bookingId">attributes.uriParams.'bookingId'</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <flow-ref doc:name="getCarBookingByIdSF" doc:id="e1a42753-f06d-476b-8423-84f3c3ae5659" name="getCarBookingByIdSF" />
-    </flow>
     <flow name="get:\hotels\(city):book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="92574e27-c1ff-4acc-92b5-305e51fef278" name="getHotelsSub_Flow" />
     </flow>
     <flow name="get:\flights\(emailID):book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="d19bcf5a-022d-445c-8c83-ebfa8cbbe813" name="getAllFlightUserBookings" />
     </flow>
-    <flow name="get:\cars\myBookings\(emailId):book-my-holidays-exp-api-config">
-        <ee:transform>
-            <ee:variables>
-                <ee:set-variable variableName="emailId">attributes.uriParams.'emailId'</ee:set-variable>
-            </ee:variables>
-        </ee:transform>
-        <flow-ref doc:name="getCarBookingsByEmailSF" doc:id="bc08ba58-8cb0-43b9-836c-f9621567e675" name="getCarBookingsByEmailSF" />
-    </flow>
     <flow name="get:\hotels\listAllBookings\(hotelBookingID):book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="3007ec81-4da6-4597-94ff-ff7fc9ab066c" name="listHotelBookingSub_Flow" />
     </flow>
-    <flow name="post:\cars\addNewCars:application\json:book-my-holidays-exp-api-config">
-        <ee:transform xsi:schemaLocation="http://www.mulesoft.org/schema/mule/ee/core http://www.mulesoft.org/schema/mule/ee/core/current/mule-ee.xsd">
-            <ee:message>
-                <ee:set-payload><![CDATA[%dw 2.0
-output application/json
----
-{
-  message: "Your request has been successfully processsed"
-}]]></ee:set-payload>
-            </ee:message>
-        </ee:transform>
-    </flow>
     <flow name="post:\hotels\book:application\json:book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="01078c5d-dda5-4371-95f4-842878191de8" name="bookHotelSub_Flow" />
-    </flow>
-    <flow name="post:\cars\booking:application\json:book-my-holidays-exp-api-config">
-        <flow-ref doc:name="createCarBookingSF" doc:id="9060cbeb-c5c9-4381-8bda-c80523d151c6" name="createCarBookingSF" />
     </flow>
     <flow name="post:\flights:application\json:book-my-holidays-exp-api-config">
         <flow-ref doc:name="Flow Reference" doc:id="63a2fa99-4480-4312-9f07-13e080d11865" name="createFlightBookings" />

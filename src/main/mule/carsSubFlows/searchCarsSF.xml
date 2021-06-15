@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="searchCarsSF" doc:id="6e553500-4bdc-4f20-970c-d6d3aad03bef" >
 		<json-logger:logger doc:name="Logger" doc:id="d142a4b7-c272-479a-8b8c-2672122bf552" config-ref="JSON_Logger_Config" message="searchAllCarsRequest"/>
-		<car-booking-process-api:get-search-cars doc:name="Get search cars" doc:id="ddd347d7-b4ea-4a23-86b6-eb841efe408a" config-ref="Car_Booking_Process_API_Config" pick-up-point="#[attributes.queryParams.pickUpPoint]" drop-point="#[attributes.queryParams.dropPoint]" date="#[attributes.queryParams.date]" time="#[attributes.queryParams.time]" client-id="${secure::carsAPI.client_id}" client-secret="${secure::carsAPI.client_secret}"/>
+		<car-booking-process-api:get-search-cars doc:name="Get search cars" doc:id="ddd347d7-b4ea-4a23-86b6-eb841efe408a" config-ref="Car_Booking_Process_API_Config" pick-up-point="#[attributes.queryParams.pickUpPoint]" drop-point="#[attributes.queryParams.dropPoint]" date="#[attributes.queryParams.date]" time="#[attributes.queryParams.time]" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
 		<json-logger:logger doc:name="Logger" doc:id="7cd89649-960e-410a-908e-23718696d7cd" config-ref="JSON_Logger_Config" message="searchAllCarsResponse"/>
 	</flow>
 </mule>

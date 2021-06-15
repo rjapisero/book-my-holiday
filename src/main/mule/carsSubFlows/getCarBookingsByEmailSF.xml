@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="getCarBookingsByEmailSF" doc:id="6742e6ce-46df-4bde-ae4a-4ea7d00ac269" >
 		<json-logger:logger doc:name="Logger" doc:id="5d5d36b0-2d9c-4206-a454-660f7ace489b" config-ref="JSON_Logger_Config" message="getCarBookingByEmailIdRequest"/>
-		<car-booking-process-api:get-my-booking-by-email-id doc:name="Get my booking by email id" doc:id="15c7aa20-5bde-4443-8116-a01a246710f3" config-ref="Car_Booking_Process_API_Config" email-id="#[vars.emailId]" client-id="${secure::carsAPI.client_id}" client-secret="${secure::carsAPI.client_secret}"/>
+		<car-booking-process-api:get-my-booking-by-email-id doc:name="Get my booking by email id" doc:id="15c7aa20-5bde-4443-8116-a01a246710f3" config-ref="Car_Booking_Process_API_Config" email-id="#[vars.emailId]" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
 		<json-logger:logger doc:name="Logger" doc:id="859d93fe-b3ad-4493-b5d3-243aeb1f2cd2" config-ref="JSON_Logger_Config" message="getCarBookingByEmailIdResponse"/>
 	</flow>
 </mule>

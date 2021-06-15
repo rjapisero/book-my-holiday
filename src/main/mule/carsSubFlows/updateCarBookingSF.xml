@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="updateCarBookingSF" doc:id="aceaea26-8cd6-4af3-945b-cffe55d15c95" >
 		<json-logger:logger doc:name="Logger" doc:id="7091028d-b368-4c16-91de-575f29a76ec4" config-ref="JSON_Logger_Config" message="updateBookingRequest"/>
-		<car-booking-process-api:update-booking-by-booking-id doc:name="Update booking by booking id" doc:id="ec81e403-913d-4115-97e6-ed8fc5432b50" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${secure::carsAPI.client_id}" client-secret="${secure::carsAPI.client_secret}"/>
+		<car-booking-process-api:update-booking-by-booking-id doc:name="Update booking by booking id" doc:id="ec81e403-913d-4115-97e6-ed8fc5432b50" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
 		<json-logger:logger doc:name="Logger" doc:id="42a133bc-382e-4c2f-a2e6-effad2997226" config-ref="JSON_Logger_Config" message="updateBookingResponse"/>
 	</flow>
 </mule>

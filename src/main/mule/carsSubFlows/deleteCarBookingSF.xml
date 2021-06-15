@@ -7,7 +7,7 @@ http://www.mulesoft.org/schema/mule/car-booking-process-api http://www.mulesoft.
 http://www.mulesoft.org/schema/mule/json-logger http://www.mulesoft.org/schema/mule/json-logger/current/mule-json-logger.xsd">
 	<flow name="deleteCarBookingSF" doc:id="ca91e73a-e713-4bc7-9b06-c82fe402121a" >
 		<json-logger:logger doc:name="Logger" doc:id="85a51afb-eb8c-4638-b9d6-b8d97fcdc250" config-ref="JSON_Logger_Config" message="deleteBookingRequest"/>
-		<car-booking-process-api:delete-booking-by-booking-id doc:name="Delete booking by booking id" doc:id="562fc319-d9fc-409a-8748-31007d992d5a" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${secure::carsAPI.client_id}" client-secret="${secure::carsAPI.client_secret}"/>
+		<car-booking-process-api:delete-booking-by-booking-id doc:name="Delete booking by booking id" doc:id="562fc319-d9fc-409a-8748-31007d992d5a" config-ref="Car_Booking_Process_API_Config" booking-id="#[vars.bookingId]" client-id="${carsAPI.client_id}" client-secret="${carsAPI.client_secret}"/>
 		<json-logger:logger doc:name="Logger" doc:id="927f63c0-45ba-451b-9495-9e6f2a1baf9f" config-ref="JSON_Logger_Config" message="deleteBookingResponse"/>
 	</flow>
 </mule>
